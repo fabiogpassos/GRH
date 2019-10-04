@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+    Listar
+
+    {% for colaborador in object_list %}
+        <br>
+        <a href="{% url 'update_colaborador' colaborador.id %}">{{ colaborador }}</a>
+        <a href="{% url 'delete_colaborador' colaborador.id %}">Excluir</a>
+
+    {% endfor %}
+
+    <br>
+    <a href="{% url 'create_colaborador'%}" class="btn btn-info">Criar</a>
+
+{% endblock %}

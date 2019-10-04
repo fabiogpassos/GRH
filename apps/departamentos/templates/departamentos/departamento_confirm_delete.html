@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block principal %}
+    Excluir
+
+    <form method="post">
+        {% csrf_token %}
+        <h6>Tem certeza de que deseja excluir "{{ object }}"? </h6>
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-danger">Excluir</button>
+    </form>
+{% endblock %}

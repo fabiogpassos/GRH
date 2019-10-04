@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
+    Banco de Horas: {{ object }}
+
+    <br>
+    {% for horaextra in object_list %}
+        <a href="">{{ horaextra }}</a>
+        <br>
+    {% endfor %}
+
+    <a href="" class="btn btn-primary">Criar</a>
+
+{% endblock %}

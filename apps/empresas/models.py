@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 # Create your models here.
 class Empresa(models.Model):
@@ -7,3 +9,6 @@ class Empresa(models.Model):
 
     def __str__(self):
         return self.nome_fantasia
+
+    def get_absolute_url(self):
+        return reverse('home')
