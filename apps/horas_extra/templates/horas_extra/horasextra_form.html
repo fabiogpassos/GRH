@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block principal %}
+    Editar
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+
+        {% if object %}
+            <a href="{% url 'delete_horasextra' object.id %}" class="btn btn-danger">Excluir</a>
+        {% endif %}
+    </form>
+{% endblock %}
