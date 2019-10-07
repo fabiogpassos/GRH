@@ -5,11 +5,18 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <title>{% block titulo %}{% endblock %}</title>
+    <title>
+        {% block titulo %}
+        {% endblock %}
+    </title>
 </head>
 <body>
     <div class="container">
-        {% block principal %}{% endblock %}
+        {% block principal %}
+        {% endblock %}
     </div>
+
+    {% block static %}
+    {% endblock %}
 </body>
 </html>

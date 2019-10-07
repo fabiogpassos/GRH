@@ -1,4 +1,8 @@
+import json
+
+from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import HorasExtra
 from .forms import HorasExtraForm
@@ -54,3 +58,20 @@ class HorasExtraColaboradorUpdate(UpdateView):
 class HorasExtraDelete(DeleteView):
     model = HorasExtra
     success_url = reverse_lazy('list_horasextra')
+
+
+class HorasExtraUse(View):
+    def post(self, *args, **kwargs):
+        horaextra = HorasExtra.objects.get(id=kwargs['pk'])
+        horaextra.utilizada = True
+        horaextra.save()
+
+        colaborador = self.request.user.colaborador
+
+        response = json.dumps(
+            {
+                'mensagem': 'Requisição executada com sucesso.',
+                'horas': float(colaborador.total_horasextra)
+            })
+
+        return HttpResponse(response, content_type='application/json')

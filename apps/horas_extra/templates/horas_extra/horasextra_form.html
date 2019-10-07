@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{% load static %}
 
 {% block principal %}
     Editar
@@ -11,6 +12,19 @@
 
         {% if object %}
             <a href="{% url 'delete_horasextra' object.id %}" class="btn btn-danger">Excluir</a>
+            <button class="btn btn-info" onclick="utilizarhorasextra({{ object.id }})" type="button">
+                Marcar hora como utilizada
+            </button>
         {% endif %}
     </form>
+
+    <h3>Total de horas extras: {{ object.colaborador.total_horasextra }}</h3>
+    Saldo de Horas: <p id="horas"></p>
+    <p id="mensagem"></p>
+
+{% endblock %}
+
+{% block static %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/funcoes-ajax.js' %}"></script>
 {% endblock %}

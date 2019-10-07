@@ -13,7 +13,11 @@ class Colaborador(models.Model):
 
     @property
     def total_horasextra(self):
-        return self.horasextra_set.all().aggregate(models.Sum('horas'))['horas__sum']
+        total = self.horasextra_set.filter(
+            utilizada=False).aggregate(
+            models.Sum('horas'))['horas__sum']
+
+        return total or 0
 
     def __str__(self):
         return self.nome
