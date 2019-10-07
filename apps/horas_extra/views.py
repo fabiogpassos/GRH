@@ -28,9 +28,24 @@ class HorasExtraCreate(CreateView):
 class HorasExtraUpdate(UpdateView):
     model = HorasExtra
     form_class = HorasExtraForm
+    success_url = reverse_lazy('list_horasextra')
 
     def get_form_kwargs(self):
         kwargs = super(HorasExtraUpdate, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+
+        return kwargs
+
+
+class HorasExtraColaboradorUpdate(UpdateView):
+    model = HorasExtra
+    form_class = HorasExtraForm
+
+    def get_success_url(self):
+        return reverse_lazy('update_colaborador', args=[self.object.colaborador.id])
+
+    def get_form_kwargs(self):
+        kwargs = super(HorasExtraColaboradorUpdate, self).get_form_kwargs()
         kwargs.update({'user': self.request.user})
 
         return kwargs

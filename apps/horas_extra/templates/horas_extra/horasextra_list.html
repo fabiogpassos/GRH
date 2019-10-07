@@ -2,11 +2,11 @@
 
 {% block principal %}
 
-    Banco de Horas
+    Banco de Horas {% if object %} - {{ object }} {% endif %}
 
     <br>
     {% for horaextra in object_list %}
-        <a href="{% url 'update_horasextra' horaextra.id %}">{{ horaextra }}</a>
+        <a href="{% url 'update_horasextra' horaextra.id %}">{{ horaextra.motivo }} | {{ horaextra.horas }} </a>
         <a href="{% url 'delete_horasextra' horaextra.id %}" class="btn btn-danger">Excluir</a>
         <br>
     {% endfor %}

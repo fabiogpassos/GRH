@@ -12,10 +12,30 @@
     </form>
 
     <br>
+    <h4>Documentos</h4>
+    <ul>
+    {% for documento in object.documento_set.all %}
+        <li>
+            <a href="{{ documento.arquivo.url }}">
+                {{ documento }}<br>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+
     <a href="{% url 'create_documento' object.id %}" class="btn btn-success">Adicionar Documento</a>
 
-    {% for documento in object.documento_set.all %}
-        <br>
-        <a href="{{ documento.arquivo.url }}">{{ documento }}</a>
+    <br><br>
+    <h4>Banco de Horas</h4>
+    <ul>
+    {% for horaextra in object.horasextra_set.all %}
+        <li>
+            <a href="{% url 'update_horasextra_colaborador' horaextra.id %}">
+                {{ horaextra.motivo }} | {{ horaextra.horas }}<br>
+            </a>
+        </li>
     {% endfor %}
+    </ul>
+
+    <h3>Total de horas extras: {{ object.total_horasextra }}</h3>
 {% endblock %}

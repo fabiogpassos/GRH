@@ -11,6 +11,10 @@ class Colaborador(models.Model):
     departamentos = models.ManyToManyField(Departamento)
     nome = models.CharField(max_length=50, help_text='Nome do colaborador')
 
+    @property
+    def total_horasextra(self):
+        return self.horasextra_set.all().aggregate(models.Sum('horas'))['horas__sum']
+
     def __str__(self):
         return self.nome
 
