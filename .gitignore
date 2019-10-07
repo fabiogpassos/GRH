@@ -1,5 +1,6 @@
 .idea
 *.sqlite3
 venv
+sta
 *.pyc
 gestao_rh/__pycache__/
