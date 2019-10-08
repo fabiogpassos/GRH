@@ -5,6 +5,7 @@ from .views import (
     ColaboradorDelete,
     ColaboradorCreate,
     ColaboradorReport,
+    HtmlPdf,
 )
 
 
@@ -14,4 +15,5 @@ urlpatterns = [
     path('editar/<int:pk>', ColaboradorUpdate.as_view(), name='update_colaborador'),
     path('excluir/<int:pk>', ColaboradorDelete.as_view(), name='delete_colaborador'),
     path('relatorio', ColaboradorReport, name='report_colaborador'),
+    path('relatorio_html', HtmlPdf.as_view(), name='report_colaborador_html'),
 ]
