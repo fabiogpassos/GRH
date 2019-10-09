@@ -16,5 +16,7 @@
     {% endif %}
 
     <a href="{% url 'create_horasextra' %}" class="btn btn-primary">Criar</a>
+    <a href="{% url 'export_horasextra_csv' %}" class="btn btn-info">Exportar CSV</a>
+    <a href="{% url 'export_horasextra_xls' %}" class="btn btn-info">Exportar XLS</a>
 
 {% endblock %}
