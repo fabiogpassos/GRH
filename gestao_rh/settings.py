@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
     'apps.core',
     'apps.empresas',
     'apps.colaboradores',
@@ -44,7 +46,6 @@ INSTALLED_APPS = [
     'apps.documentos',
     'apps.horas_extra',
     'bootstrapform',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
