@@ -3,6 +3,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from apps.colaboradores.api.views import ColaboradorViewSet
+from apps.horas_extra.api.views import HorasExtraViewSet
 from rest_framework import routers
 from apps.core import views
 
@@ -10,6 +12,8 @@ from apps.core import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'api/colaboradores', ColaboradorViewSet)
+router.register(r'api/horasextras', HorasExtraViewSet)
 
 
 urlpatterns = [

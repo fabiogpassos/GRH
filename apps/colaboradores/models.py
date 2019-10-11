@@ -10,6 +10,7 @@ class Colaborador(models.Model):
     empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT, null=True, blank=True)
     departamentos = models.ManyToManyField(Departamento)
     nome = models.CharField(max_length=50, help_text='Nome do colaborador')
+    imagem = models.ImageField(null=True)
 
     @property
     def total_horasextra(self):
