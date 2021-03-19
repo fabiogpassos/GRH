@@ -4,7 +4,7 @@ celery==4.3.0
 Django==2.2.5
 django-bootstrap-form==3.4
 django-celery-results==1.1.2
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 html5lib==1.0.1
 importlib-metadata==0.23
 kombu==4.6.5
